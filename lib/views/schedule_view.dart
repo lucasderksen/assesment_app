@@ -1,6 +1,8 @@
+import 'package:assesment_app/providers/moments_provider.dart';
 import 'package:assesment_app/services/moment_api.dart';
 import 'package:assesment_app/widgets/schedule_item_widget.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 class ScheduleView extends StatefulWidget {
   const ScheduleView({Key? key}) : super(key: key);
@@ -10,7 +12,6 @@ class ScheduleView extends StatefulWidget {
 }
 
 class _ScheduleViewState extends State<ScheduleView> {
-  List<Moment> moments = MomentApi.getMoments();
 
   @override
   Widget build(BuildContext context) {
@@ -33,7 +34,7 @@ class _ScheduleViewState extends State<ScheduleView> {
     List<Widget> widgets = <Widget>[];
     int?
         lastDay; // voor nu op basis van dag, als meer tijd op basis van gehele datum
-    for (Moment moment in moments) {
+    for (Moment moment in context.watch<MomentsProvider>().moments) {
       if (lastDay != null && moment.date.day == lastDay) {
         widgets.add(ScheduleItemWidget(
           moment: moment,
