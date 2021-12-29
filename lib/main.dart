@@ -1,5 +1,6 @@
 import 'package:assesment_app/providers/moments_provider.dart';
-import 'package:assesment_app/views/schedule_view.dart';
+import 'package:assesment_app/views/schedule_home_view.dart';
+import 'package:assesment_app/views/schedule_list_view.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
@@ -22,7 +23,7 @@ class MyApp extends StatelessWidget {
         scaffoldBackgroundColor: const Color(0xffE6E6E6),
         primarySwatch: Colors.blue,
       ),
-      home: ScheduleView(),
+      home: ScheduleHomeView(),
     );
   }
 }

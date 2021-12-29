@@ -127,8 +127,6 @@ class MomentApi {
         _atWork(13),
 
         _bedTime(14)
-
-
       ];
     }
     return _moments!;

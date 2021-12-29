@@ -4,14 +4,14 @@ import 'package:assesment_app/widgets/schedule_item_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
-class ScheduleView extends StatefulWidget {
-  const ScheduleView({Key? key}) : super(key: key);
+class ScheduleListView extends StatefulWidget {
+  const ScheduleListView({Key? key}) : super(key: key);
 
   @override
-  _ScheduleViewState createState() => _ScheduleViewState();
+  _ScheduleListViewState createState() => _ScheduleListViewState();
 }
 
-class _ScheduleViewState extends State<ScheduleView> {
+class _ScheduleListViewState extends State<ScheduleListView> {
 
   @override
   Widget build(BuildContext context) {
