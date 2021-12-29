@@ -37,7 +37,7 @@ class _ScheduleListViewState extends State<ScheduleListView> {
     for (Moment moment in context.watch<MomentsProvider>().moments) {
       if (lastDay != null && moment.date.day == lastDay) {
         widgets.add(ScheduleItemWidget(
-          moment: moment,
+          moment: moment, momentIndex: context.read<MomentsProvider>().moments.indexOf(moment),
         ));
         widgets.add(SizedBox(height: 10));
       } else {
@@ -52,7 +52,7 @@ class _ScheduleListViewState extends State<ScheduleListView> {
           ),
         ));
         widgets.add(ScheduleItemWidget(
-          moment: moment,
+          moment: moment, momentIndex: context.read<MomentsProvider>().moments.indexOf(moment),
         ));
         widgets.add(SizedBox(height: 10));
       }

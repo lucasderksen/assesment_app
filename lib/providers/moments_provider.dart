@@ -11,13 +11,10 @@ class MomentsProvider with ChangeNotifier {
     notifyListeners();
   }
 
-  setAllMedicineTaken(Moment activeMoment){
+  setAllMedicineTaken(Moment activeMoment,bool isTaken){
     List<Moment> editedMoments = moments;
-    for(Moment moment in editedMoments){
-      for(Medicine med in moment.medicines!){
-        med.taken = true;
-      }
-    }
-    // final test = moments.singleWhere((moment) => moment == activeMoment);
+    int activeIndex = editedMoments.indexOf(activeMoment);
+    editedMoments[activeIndex].medicines!.forEach((med) { med.taken = isTaken; });
+    moments = editedMoments;
   }
 }

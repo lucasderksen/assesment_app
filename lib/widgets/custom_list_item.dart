@@ -23,9 +23,10 @@ class _CustomListItemState extends State<CustomListItem> {
   }
   @override void didUpdateWidget(covariant CustomListItem oldWidget) {
     super.didUpdateWidget(oldWidget);
-    if (widget.medicine.taken != oldWidget.medicine.taken) {
+    setState(() {
       this.isChecked = widget.medicine.taken;
-    }
+    });
+
   }
 
   @override

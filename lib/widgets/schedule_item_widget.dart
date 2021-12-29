@@ -13,10 +13,11 @@ class ScheduleItemWidget extends StatefulWidget {
       {Key? key,
       required this.moment,
       this.isCheckedStartValue = false,
-      this.isExpandedStartValue = false})
+      this.isExpandedStartValue = false, required this.momentIndex})
       : super(key: key);
 
   final Moment moment;
+  final int momentIndex;
   final bool isCheckedStartValue;
   final bool isExpandedStartValue;
 
@@ -45,10 +46,7 @@ class _ScheduleItemWidgetState extends State<ScheduleItemWidget> {
   }
 
   void setAllMedicineTaken(bool changedValue) {
-    context.read<MomentsProvider>().setAllMedicineTaken(widget.moment);
-    for (Medicine med in widget.moment.medicines!) {
-      med.taken = changedValue;
-    }
+    context.read<MomentsProvider>().setAllMedicineTaken(widget.moment,changedValue);
   }
 
   @override
@@ -154,7 +152,7 @@ class _ScheduleItemWidgetState extends State<ScheduleItemWidget> {
     List<Widget> widgets = <Widget>[];
     widgets.add(Container(height: 4,color: const Color(0xff8CC34B),));
     widgets.add(SizedBox(height: 10,));
-    for(Medicine med in widget.moment.medicines!){
+    for(Medicine med in context.watch<MomentsProvider>().moments[widget.momentIndex].medicines!){
       widgets.add(CustomListItem(medicine: med,));
       widgets.add(SizedBox(height: 10,));
     }
